@@ -1,6 +1,8 @@
 package HomeWork3.calcs.simple;
 
-public class CalculatorWithMathExtends extends CalculatorWithOperator{
+import HomeWork3.calcs.api.ICalculator;
+
+public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalculator {
     @Override
     public double stepen(double number, double stepen) {
         return Math.pow(number,stepen);

@@ -1,6 +1,8 @@
 package HomeWork3.calcs.simple;
 
-public class CalculatorWithMathCopy<soutp> {
+import HomeWork3.calcs.api.ICalculator;
+
+public class CalculatorWithMathCopy<soutp> implements ICalculator {
     public double sum (double a, double b) {
         return a+b;
     }
