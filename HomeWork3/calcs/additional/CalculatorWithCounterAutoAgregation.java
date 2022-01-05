@@ -10,6 +10,9 @@ public class CalculatorWithCounterAutoAgregation {
     private final CalculatorWithMathExtends calc3;
 
     private long counter;
+    public void incrementCountOperation() {
+        counter++;
+    }
 
     public long getCountOperation() {
         return counter;
@@ -34,7 +37,7 @@ public class CalculatorWithCounterAutoAgregation {
     }
 
     public double stepen(double number, double stepen) {
-        counter++;
+        incrementCountOperation();
         if (calc1 != null) {
             return calc1.stepen(number, stepen);
         } else if (calc2 != null) {
@@ -45,7 +48,7 @@ public class CalculatorWithCounterAutoAgregation {
 
 
     public double modul(double a) {
-        counter++;
+        incrementCountOperation();
         if (calc1 != null) {
             return calc1.modul(a);
         } else if (calc2 != null) {
@@ -56,7 +59,7 @@ public class CalculatorWithCounterAutoAgregation {
 
 
     public double coren(double a) {
-        counter++;
+        incrementCountOperation();
         if (calc1 != null) {
             return calc1.coren(a);
         }else if (calc2 != null) {
@@ -67,7 +70,7 @@ public class CalculatorWithCounterAutoAgregation {
 
 
     public double sum(double a, double b) {
-        counter++;
+        incrementCountOperation();
         if (calc1 != null) {
             return calc1.sum(a, b);
         }else if (calc2 != null) {
@@ -78,7 +81,7 @@ public class CalculatorWithCounterAutoAgregation {
 
 
     public double minus(double a, double b) {
-        counter++;
+        incrementCountOperation();
         if (calc1 != null) {
             return calc1.minus(a, b);
         }else if (calc2 != null) {
@@ -89,7 +92,7 @@ public class CalculatorWithCounterAutoAgregation {
 
 
     public double multiplication(double a, double b) {
-        counter++;
+        incrementCountOperation();
         if (calc1 != null) {
             return calc1.multiplication(a, b);
         }else if (calc2 != null) {
@@ -100,7 +103,7 @@ public class CalculatorWithCounterAutoAgregation {
 
 
     public double division(double a, double b) {
-        counter++;
+        incrementCountOperation();
         if (calc1 != null) {
             return calc1.division(a, b);
         }else if (calc2 != null) {

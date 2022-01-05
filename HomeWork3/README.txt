@@ -21,3 +21,7 @@
    8.2 calcs>> simple >>> CalculatorWithOperator
        calcs>> simple >>> Создать класс CalculatorWithMathCopy
        calcs>> simple >>> CalculatorWithMathExtends
+
+9. 9.1-9.6 calcs >> additional >>> CalculatorWithCounterAutoAgregationInterface
+   9.7 runners >> CalculatorWithCounterAutoCompositeInterfaceMain
+
