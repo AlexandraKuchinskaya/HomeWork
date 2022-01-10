@@ -90,15 +90,12 @@ public class DataContainer <T> {
         if (index >= data.length || index <0 ) {
             return false;
         }
-        for (int i = 0; i < data.length; i++) {
-            if (i == index) {
+        for (int i = index; i < data.length-1; i++) {
                 data [i] = data [i+1];
-            }
         }
 
         T [] dataNew2 = Arrays.copyOf(data,data.length-1);
         this.data=dataNew2;
-        //System.out.println("новый массив после удаления элемента по индексу= " + Arrays.toString(dataNew2));
         return true;
     }
 
@@ -112,7 +109,7 @@ public class DataContainer <T> {
      * @param item - элемент массива, который надо удалить.
      * @return возвращает true, если элемент найдем и удален. Возвращает false, если такого элемента нет в массиве.
      */
-    public boolean delete (T item) {
+    public boolean deleteItem (T item) {
         for (int i = 0; i < data.length; i++) {
             if ( data [i].equals(item)) {
                 for (int j = i; j <data.length-1 ; j++) {
@@ -120,26 +117,24 @@ public class DataContainer <T> {
                 }
                 T [] dataNew3 = Arrays.copyOf(data,data.length-1);
                 this.data=dataNew3;
-                // System.out.println("новый массив после удаления элемента= " + Arrays.toString(dataNew3));
                 return true;
             }
         }
         return false;
     }
 
-
     /**
      * 9. Добавить НЕ СТАТИЧЕСКИЙ метод void sort(Comparator<.......> comparator). Данный метод занимается сортировкой данных записанных в поле data используя реализацию сравнения из ПЕРЕДАННОГО объекта comparator. Классом Arrays пользоваться запрещено.
      * @param comparator - сравнивает 2 элемента массива.
      */
     public void sort (Comparator<T> comparator) {
-        boolean isSort = false;
+        boolean isSorted = false;
         T a;
-        while (isSort=true) {
-            isSort= true;
+        while (!isSorted) {
+            isSorted= true;
             for (int i = 0; i < data.length-1; i++) {
-                if (comparator.compare(data [i], data [i+1])>0){
-                    isSort = false;
+                if (comparator.compare(data[i], data[i + 1]) > 0){
+                    isSorted = false;
 
                     a=data[i];
                     data [i]=data [i+1];

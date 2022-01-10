@@ -25,43 +25,29 @@ public class DataContainerMain {
         int element2 = container.get(index2);
         int element3 = container.get(index3);
         int element4 = container.get(index4);
-        System.out.println("element1 " + element1);
+        System.out.println("element1=" + element1);
         System.out.println("element2= " + element2);
         System.out.println("element3= " + element3);
         System.out.println("element4= " + element4);
 
         System.out.println("array = " + Arrays.toString(container.getItems()));
-        System.out.println(container);
+        //System.out.println(container);
 
-        System.out.println("delete by index= " + container.delete(2));
+        container.delete(2);
+        System.out.println("после удаления по индексу = " + Arrays.toString(container.getItems()));
 
-        System.out.println("delete element = " + container.delete(888));
+        container.deleteItem(77);
+        System.out.println("после удаления по элементу = " + Arrays.toString(container.getItems()));
 
-
-        Comparator <Integer> comparator = new DataContainerIntegerComparator();
-
-        for (Integer element : container.getData()) {
-                System.out.println(element);
-        }
-
+        // почему???
+        Comparator<Integer> comparator = new DataContainerIntegerComparator();
         container.sort(comparator);
+        System.out.println(Arrays.toString(container.getItems()));
 
-        // почему не выводит новый отсортированный массив?
-        System.out.println("______");
-        for (Integer element : container.getData()) {
-                System.out.println(element);
-
-        }
-
-
-
-
-
-
-
-
-
+        System.out.println(container);
 
 
     }
+
 }
+
