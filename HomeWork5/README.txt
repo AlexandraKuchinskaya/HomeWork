@@ -10,7 +10,8 @@
 	4.5 - 
 5. main/RegExSearchMain
    main/EasySearchMain
-6. main/TestISearchEngine
-7.
+6. main/TestISearchEngine 
+	test/RegExSearchTest
+7. main/FindInFile
 
 

@@ -14,7 +14,6 @@ public class TestISearchEngine {
 
         ISearchEngine easySearch = new EasySearch();
         ISearchEngine regExSearch = new RegExSearch();
-        ISearchEngine searchEnginePunctuationNormalizer = new SearchEnginePunctuationNormalizer(new EasySearch());
 
         testSearch(easySearch);
 
@@ -22,9 +21,7 @@ public class TestISearchEngine {
 
         testSearch(regExSearch);
 
-        System.out.println("______________" );
 
-        testSearch(searchEnginePunctuationNormalizer);
 
     }
 

@@ -1,7 +1,11 @@
 package HomeWork5.main;
 
+import HomeWork5.dto.RegExSearch;
+import HomeWork5.dto.SearchEngineWithoutRegister;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -40,13 +44,6 @@ public class FindInFile {
             System.out.println(item.getName());
         }
 
-        //System.out.println("Выбирете файл, с которым будете работать, если не будете работать с файлами, введите null");
-
-        //String text =console.nextLine();
-
-        //System.out.println("Вводите то слово, которое вы хотите найти в этом тексте");
-       // String word = console.nextLine();
-
         try {
             File resultFile = new File(filePath + "\\result.txt");
             if (resultFile.createNewFile()) {
@@ -58,7 +55,46 @@ public class FindInFile {
             System.err.println(e);
         }
 
+        boolean search;
+        RegExSearch regExSearch = new RegExSearch();
+        SearchEngineWithoutRegister decoratorSearch = new SearchEngineWithoutRegister(regExSearch);
 
+        do {
+            search = true;
+            System.out.println("Выбирете файл, с которым будете работать. Если не будете работать с файлами, введите null");
+            String fileName =console.nextLine();
+            System.out.println("Ведите слово,которое хотите найти");
+            String word =console.nextLine();
+
+            if (fileName == null) {
+                search = false;
+            }
+
+            String text = null;
+
+            try {
+                Path reader = of(filePath + "\\" + fileName);
+                text = Files.readString(reader);
+            }
+            catch (FileNotFoundException e) {
+                System.out.println("Ввели неверный путь к файлу" );
+
+            } catch (IOException e) {
+                System.out.println("Проблемы с файлом" );
+            }
+
+            Long count = decoratorSearch.search(text, word);
+
+            try {
+                FileWriter fileWriter = new FileWriter(filePath + "\\result.txt");
+                fileWriter.append ("Имя файла - " + fileName + ", слово - " + word + ", количество найденых слов - " + count);
+                fileWriter.close();
+            }
+            catch (Exception e) {
+                System.out.println("Ошибка");
+            }
+
+        } while (!search);
     }
 }
 
