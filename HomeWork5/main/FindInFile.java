@@ -55,19 +55,19 @@ public class FindInFile {
             System.err.println(e);
         }
 
-        boolean search;
+        boolean search= true;
         RegExSearch regExSearch = new RegExSearch();
         SearchEngineWithoutRegister decoratorSearch = new SearchEngineWithoutRegister(regExSearch);
 
         do {
-            search = true;
             System.out.println("Выбирете файл, с которым будете работать. Если не будете работать с файлами, введите null");
             String fileName =console.nextLine();
             System.out.println("Ведите слово,которое хотите найти");
             String word =console.nextLine();
 
-            if (fileName == null) {
+            if (fileName == null || fileName.isEmpty()) {
                 search = false;
+                continue;
             }
 
             String text = null;
@@ -94,7 +94,7 @@ public class FindInFile {
                 System.out.println("Ошибка");
             }
 
-        } while (!search);
+        } while (search);
     }
 }
 
